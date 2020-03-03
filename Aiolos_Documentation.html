@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Asciidoctor 1.5.4">
+  <meta name="author" content="Άτομα Ομάδας: Καμαρόπουλος Κωνσταντίνος 46830 - Ζαχαρία Ναταλία 45224 - Βαλαγκούτη Ηρώ-Αθηνά 161082">
+  <title>Aiolos - IoT Project Documentation</title>
+  <link rel="stylesheet" href="https://asciidoclive.com/assets/asciidoctor.js/css/asciidoctor.css">
+</head>
+
+<body class="article">
+  <div id="header">
+    <h1>Aiolos - IoT Project Documentation</h1>
+    <div class="details">
+      <span id="author" class="author">Άτομα Ομάδας: Καμαρόπουλος Κωνσταντίνος 46830 - Ζαχαρία Ναταλία 45224 - Βαλαγκούτη Ηρώ-Αθηνά 161082</span><br>
+    </div>
+    <div id="toc" class="toc">
+      <div id="toctitle">Table of Contents</div>
+      <ul class="sectlevel1">
+        <li><a href="#__project">Περιγραφή project</a></li>
+        <li><a href="#__">Υλικό που χρησιμοποιήθηκε κατά την υλοποίησή του</a></li>
+        <li><a href="#___2">Συνδεσμολογία</a></li>
+        <li><a href="#___3">Περιγραφή κώδικα</a></li>
+        <li><a href="#___4">Προβλήματα και αντιμετώπισή τους</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="sect1">
+      <h2 id="__project">Περιγραφή project</h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Στο project "Aiolos" βασικός στόχος είναι η λήψη μετρήσεων από την ατμόσφαιρα
+            με την βοήθεια αισθητήρων αέρα, ώστε να διαπιστωθεί εάν παρουσιάζονται
+            ορισμένες ουσίες αλλά και να παρατηρηθεί η ποιότητα του αέρα. Οι ασθητήρες
+            που χρησιμοποιούνται είναι 8 (οκτώ) και μετρούν μεταξύ άλλων, διαρροή
+            αερίου, συγκέντρωση αλκοόλης, μεθανόλης, υδρογόνου και καπνού. Οι αισθητήρες
+            βρίσκονται τοποθετημένοι πάνω σε ένα drone, λαμβάνοντας έτσι δεδομένα
+            κατά την διάρκεια της πτήσης του. Τα δεδομένα στέλνονται σε μία βάση
+            δεδομένων και είναι προσβάσιμα από ιστοσελίδα, στην οποία φαίνεται η
+            θέση του drone, οι μετρήσεις, καθώς και διάφορα στατιστικά.<br></p>
+        </div>
+        <div class="paragraph">
+          <p>Στο προγραμματιστικό κομμάτι του project έγιναν χρήση των παρακάτω:<br></p>
+        </div>
+        <div class="ulist">
+          <ul>
+            <li>
+              <p>Drone: Wiring (C/C++ like programming language for Arduino programming)</p>
+            </li>
+            <li>
+              <p>Base: Python 3</p>
+            </li>
+            <li>
+              <p>REST API: NodeJS (Σαν framework χρησιμοποιείται NestJS)</p>
+            </li>
+            <li>
+              <p>Frontend: HTML/CSS/JS (Angular 8)<br></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__">Υλικό που χρησιμοποιήθηκε κατά την υλοποίησή του</h2>
+      <div class="sectionbody">
+        <div class="ulist">
+          <ul>
+            <li>
+              <p>Αισθητήρες:<br></p>
+            </li>
+          </ul>
+        </div>
+        <div class="paragraph">
+          <p>MQ2: Χρησιμοποιούνται για την ανίχνευση διαρροής αερίου, οικιακά αλλά και
+            βιομηχανικά, είναι κατάλληλοι για ανίχνευση LPG, ισο-βουτάνιου, προπανίου,
+            μεθανίου, αλκοόλ, υδρογόνου και καπνού.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://www.cableworks.gr/images/thumbnails/400/350/detailed/255/mq2_sensor.jpg"
+              alt="MQ2" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ3: Ευαίσθητος στην αλκοόλη και την αιθανόλη.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://www.waveshare.com/img/devkit/accBoard/MQ-3-Gas-Sensor/MQ-3-Gas-Sensor-2.jpg"
+              alt="MQ3" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ5: Αισθητήρας ιδανικός για ανίχνευση διαρροών φυσικού αερίου. Ο συγκεκριμένος
+            αισθήτηρας ανιχνεύει από 300 εως 5000ppm φυσικού αερίου.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://www.hellasdigital.gr/images/detailed/5/mq5.jpg" alt="MQ5" width="300"
+              height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ6: Ανιχνεύει συγκεντρώσεις γκαζιού από 200 μέχρι 10000ppm.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://i.ebayimg.com/images/g/nEIAAOSwN8FZrkJ2/s-l300.jpg" alt="MQ6" width="300"
+              height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ135: Αισθητήρας για βενζίνη, αλκοόλ και καπνό.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://www.cytron.io/image/catalog/products/SN-MQ135-MOD/SN-MQ135-MOD%20(4).jpg"
+              alt="MQ135" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ7: Χρησιμοποιείται για ανίχνευση μονοξειδίου του άνθρακα (CO) στον αέρα
+            καθώς και την συγκέντρωσή του.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://4.imimg.com/data4/HH/UT/MY-11936130/mq-7-gas-sensor-module-500x500.jpg"
+              alt="MQ7" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ8: Ανιχνεύει υδρογόνο και την συγκέντρωσή του στον αέρα.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://mytechtools.com.pk/wp-content/uploads/2019/05/Hydrogen-Gas-Sensor-Module-MQ-8-B.jpg"
+              alt="MQ8" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>MQ9: Ανιχνεύει διαρροές γκαζιού τόσο σε επιχειρήσεις όσο και σε οικιακό
+            περιβάλλον. Κατάλληλο και για ανίχνευση υγροποιημένου αερίου πετρελαίου
+            (LPG), μονοδειδίου του άνθρακα (CO) και μεθανίου CH4.</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://www.hellasdigital.gr/images/detailed/5/mq9.jpg" alt="MQ9" width="300"
+              height="200">
+          </div>
+        </div>
+        <div class="ulist">
+          <ul>
+            <li>
+              <p>Πλακέτες:<br></p>
+            </li>
+          </ul>
+        </div>
+        <div class="paragraph">
+          <p>Arduino Mega</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://solarbotics.com/wp-content/uploads/50452-img_5101-2.jpg" alt="Arduino_Mega"
+              width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>Raspberry Pi</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://b.scdn.gr/images/sku_main_images/019212/19212716/20190627125506_raspberry_pi_4_model_b_4gb.jpeg"
+              alt="RaspberryPi" width="300" height="200">
+          </div>
+        </div>
+        <div class="ulist">
+          <ul>
+            <li>
+              <p>Λοιπά στοιχεία:<br></p>
+            </li>
+          </ul>
+        </div>
+        <div class="paragraph">
+          <p>REYLAX RYLR896: LoRa Transceiver Module</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://www.electorials.com/uploads/1/0/1/7/101767294/editor/screen-shot-2018-05-31-at-8-48-03-pm.png?1532661796"
+              alt="RYLR896" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>CRIUS NEO-6 GPS</p>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="https://img.dxcdn.com/productimages/sku_266784_2.jpg" alt="GPS" width="300"
+              height="200">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="___2">Συνδεσμολογία</h2>
+      <div class="sectionbody">
+        <div id="img-arduino" class="imageblock">
+          <div class="content">
+            <img src="arduino.png" alt="Arduino">
+          </div>
+          <div class="title">Figure 1: Arduino</div>
+        </div>
+        <div class="paragraph">
+          <p>Υπάρχουν 8 αισθητήρες και λειτουργούν με 5 volt ο καθένας. Κάθε αισθητήρας
+            έχει 4 pins: vcc, gnd, digital και analog. Η σύνδεση γίνεται στο analog
+            για να μπορούμε να έχουμε τις ακριβείς τιμές από τις μετρήσεις. Το LoRa
+            λειτουργεί με 3,3 volt και έχει 6 pins. Οι resistors χρησιμοποιούνται
+            ώστε το LoRa να παίρνει το κατάλληλο ρεύμα.<br> Τα TX και RX είναι ο
+            τρόπος επικοινωνίας που χρησιμοποιούμε για να επικοινωνήσουμε με το LoRa
+            και το GPS. Επικοινωνούν σειριακά.</p>
+        </div>
+        <div id="img-raspberry" class="imageblock">
+          <div class="content">
+            <img src="raspberry.png" alt="Raspberry">
+          </div>
+          <div class="title">Figure 2: Raspberry</div>
+        </div>
+        <div class="paragraph">
+          <p>Εδώ δεν χρειάζoνται resistors καθώς το LoRa παίρνει το απαραίτητο ρεύμα.</p>
+        </div>
+        <div id="img-plaketavol2" class="imageblock">
+          <div class="content">
+            <img src="plaketa.jpg" alt="Plaketa" width="300" height="200">
+          </div>
+          <div class="title">Figure 3: Πλακέτα</div>
+        </div>
+        <div class="imageblock">
+          <div class="content">
+            <img src="plaketavol2.jpg" alt="Plaketavol2" width="300" height="200">
+          </div>
+        </div>
+        <div class="paragraph">
+          <p>Η πλακέτα δημιουργήθηκε επειδή το project χρειαζόταν να γίνει mount σε
+            drone. Λειτουγρεί σαν shield πάνω στο Arduino mega ώστε να είναι πιο
+            "μαζεμένο" το κύκλωμα για να μπορέσει να μπει στο 3d printed κουτί που
+            θα γίνει mount επάνω στο drone.</p>
+        </div>
+        <div id="img-kouti" class="imageblock">
+          <div class="content">
+            <img src="kouti.png" alt="kouti" width="300" height="200">
+          </div>
+          <div class="title">Figure 4: 3D printed κουτί</div>
+        </div>
+        <div class="videoblock">
+          <div class="content">
+            <video src="kouti_video.mp4#t=60,140" width="640" autoplay controls>
+Your browser does not support the video tag.
+</video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="___3">Περιγραφή κώδικα</h2>
+      <div class="sectionbody">
+        <div class="ulist">
+          <ul>
+            <li>
+              <p>Drone:<br> Στο κομμάτι αυτό του κώδικα ουσιαστικά γίνεται αχρικοποίηση
+                των ports του arduino και ετοιμάζεται το string με τις πληροφορίες
+                που λαμβάνονται από τους sensors και στέλνεται στο LoRa.</p>
+            </li>
+            <li>
+              <p>Relay:<br> Το τμήμα αυτό του κώδικα πραγματεύεται την λήψη των δεδομένων
+                από το arduino και την επεξεργασία τους από το raspberry. Τα δεδομένα
+                γίνονται σε μορφή JSON και η διαδικασία είναι multithreaded, οπότε
+                μπορεί να επαναλαμβάνεται για πολλά δεδομένα χωρίς να χρειάζεται
+                να περιμένει απάντηση.</p>
+            </li>
+            <li>
+              <p>Web:<br> Το κομμάτι αυτό αποτελείται από δύο μέρη, backend και frontend.<br>                Backend: Στο service υπάρχει μία μέθοδος που παίρνει όλα τα logs
+                από την βάση δεδομένων (τη μορφή των οποίων έχουμε ορίσει εμείς)
+                και μία μέθοδος που τα αποθηκεύει στην βάση. Το service αυτό γίνεται
+                consume από τον controller ο οποίος λειτουργεί με βάση το ανάλογο
+                decorator.<br> Frontend: Η σελίδα αποτελείται από 3 components. Το
+                header, τον χάρτη και το γράφημα. Υπάχρει ένα service που τραβάει
+                δεδομένα από το backend και συναρτήσεις που χρησιμοποιούνται για
+                την εμφάνιση των δεδομένων, οι οποίες λειτουργούν έτσι ώστε να μην
+                υπάρχουν διπλότυπα δεδομένα.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="___4">Προβλήματα και αντιμετώπισή τους</h2>
+      <div class="sectionbody">
+        <div class="ulist">
+          <ul>
+            <li>
+              <p>Μπαταρία:<br> Κατά τη διάρκεια ανάπτυξης του project τροφοδοτούσαμε
+                το arduino με ένα powerbrick 5V⎓2A. Αρχικά, πριν την ενωσμάτωση του
+                LoRa module το οποίο απαιτούσε 3,3V, το κύκλωμα λειτουργούσε κανονικά.
+                Μετά την προσθήκη του, συνειδητοποιήσαμε πως οι αισθητήρες γονάτιζαν
+                την τάση τροφοδοσίας (2,8V αντί για 5V), καθώς η τάση εισόδου στον
+                διαιρέτη τάσης δεν ήταν αρκετή για να δώσει έξοδο 3,3V. Ως αποτέλεσμα
+                το LoRa module δεν μπορούσε να λειτουργήσει. Παρ'όλα αυτά, στην συνέχεια
+                αποφασίσαμε να τροφοδοτήσουμε το arduino μέσω του power delivery
+                συστήματος του drone, το οποίο ήταν ικανό να διατηρήσει την τάση
+                σταθερή για όλο το κύκλωμα.</p>
+            </li>
+            <li>
+              <p>GPS:<br> Δεν υπήρχαν τα schematics και γενικά πληροφορίες στο internet
+                για το συγκεκριμένο μοντέλο, οπότε δεν γνωρίζαμε πως να φτιάξουμε
+                την συνδεσμολογία και πως να το λειτουργήσουμε.</p>
+            </li>
+            <li>
+              <p>Sensor pins:<br> Τα sensor pins ήταν γωνιακά, με αποτέλεσμα να μην
+                υπάρχει δυνατότητα να γίνει χρήση τους στο project. Η αποκόλλησή
+                τους δεν λειτούργησε, καθώς χάλασαν τα pads. Αγοράστηκαν καινούρια
+                sensors και κατασκευάστηκε πλακέτα με γωνιακά headers.</p>
+            </li>
+            <li>
+              <p>Hardware Serial library:<br></p>
+            </li>
+          </ul>
+        </div>
+        <div id="img-logic_analyser" class="imageblock">
+          <div class="content">
+            <img src="logic_analyser.png" alt="logic_analyser">
+          </div>
+          <div class="title">Figure 5: Η εικόνα πάρθηκε από logic analyser</div>
+        </div>
+        <div class="paragraph">
+          <p>Αρχικά η Arduino βιβλιοθήκη για το LoRa που αναπτύξαμε ήταν αυτή που έκανε
+            initialize (ορισμό baudrate) το σειριακό interface που θα χρησιμοποιούσε.
+            Κατά την διάρκεια της ανάπτυξής της, οι δοκιμές γινόντουσαν σε ένα ESP-32
+            και όλα λειτουργούσαν κανονικά. Παρόλα αυτά, όταν έγινε χρήση της στο
+            Arduino Mega, προέκυψε μια περίεργη συμπεριφορά της HardwareSerial.h
+            βιβλιοθήκης του Arduino Mega με αποτέλεσμα να ορίζει λάθος baudrate στην
+            σειριακή όταν αυτό γινόταν μέσα από τρίτη βιβλιοθήκη. Έτσι, το LoRa δεν
+            μπορούσε να αναγνωρίσει τα AT commands που έστελνε το Arduino και επέστρεφε
+            μηνύματα λάθους. Η λύση που εφαρμόσαμε ήταν η αρχικοποίηση της σειριακής
+            εκτός της LoRa βιβλιοθήκης.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
